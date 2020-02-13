@@ -39,6 +39,7 @@ class BGGDb{
 			'client_secret'	=>	$client_secret
 		));
 	}
+
 	public static function firstTimeInsert($data){
 		global $wpdb;
 		if ($data['access_token'] != "" && $data['token_type'] != "" && $data['expires_in'] != "" && $data['refresh_token'] != "" && $data['scope'] != "")  {
@@ -53,10 +54,6 @@ class BGGDb{
 		} else {
 			return 0;
 		}
-	}
-
-	public static function test(){
-		return "string";
 	}
 
 } new BGGDb();

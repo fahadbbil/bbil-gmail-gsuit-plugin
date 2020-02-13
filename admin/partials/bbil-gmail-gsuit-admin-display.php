@@ -14,3 +14,7 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<?php 
+$credData = BGGHelper::bggGetCredData();
+echo $credData->client_id;
+echo $credData->client_secret;
