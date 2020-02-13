@@ -100,4 +100,12 @@ class Bbil_Gmail_Gsuit_Admin {
 
 	}
 
+	public function admin_menus_items() {
+		add_menu_page( 'BBIL-Gmail-Gsuit', 'BBIL-Gmail-Gsuit', 'manage_options', 'bbil-gmail-gsuit', function (){$this->admin_main_menu_view();}, '', 11 );
+	}
+
+	public function admin_main_menu_view() {
+		include plugin_dir_path( dirname( __FILE__ ) ).'admin/partials/bbil-gmail-gsuit-admin-display.php';
+	}
+
 }
