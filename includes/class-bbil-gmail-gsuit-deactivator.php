@@ -30,7 +30,8 @@ class Bbil_Gmail_Gsuit_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		$tableName = 'bgg_credentials';
+		$deleteTable = BGGDb::deleteTable($tableName);
 	}
 
 }

@@ -80,3 +80,12 @@ function run_bbil_gmail_gsuit() {
 
 }
 run_bbil_gmail_gsuit();
+
+// Class files load
+$classes = glob(plugin_dir_path( __FILE__ ).'class/autoload/*.php');
+if ($classes) {
+    foreach ($classes as $class) {
+        require_once $class;
+    }
+}
+
