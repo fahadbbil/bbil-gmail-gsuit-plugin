@@ -5,7 +5,7 @@ class BGGDb{
 
 	public static function bggCreateCredTable(){
 		global $wpdb;
-		$sql = "CREATE TABLE `". $wpdb->prefix ."bgg_credentials` (
+		$sql = "CREATE TABLE IF NOT EXISTS `". $wpdb->prefix ."bgg_credentials` (
 		  `id` int(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		  `client_id` varchar(128) NOT NULL ,
 		  `client_secret` varchar(128) NOT NULL,
@@ -14,7 +14,6 @@ class BGGDb{
 		);";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     	dbDelta( $sql );
-
 	}
 	
 	public static function deleteTable($tableName) {
@@ -31,6 +30,15 @@ class BGGDb{
 		return $results;
 	}
 
+	public static function bggSetCred(){
+		global $wpdb;
+		$client_id = '11363867946-kbnqo5p578qsep3f51c261v47qab2mcd.apps.googleusercontent.com';
+		$client_secret = 'GOfPJ7X31dj-tCUIwbXDD29V';
+		$query = $wpdb->insert($wpdb->prefix.'bgg_credentials', array(
+			'client_id'		=>	$client_id,
+			'client_secret'	=>	$client_secret
+		));
+	}
 	public static function firstTimeInsert($data){
 		global $wpdb;
 		if ($data['access_token'] != "" && $data['token_type'] != "" && $data['expires_in'] != "" && $data['refresh_token'] != "" && $data['scope'] != "")  {

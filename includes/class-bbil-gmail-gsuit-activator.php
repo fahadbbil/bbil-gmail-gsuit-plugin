@@ -31,6 +31,8 @@ class Bbil_Gmail_Gsuit_Activator {
 	 */
 	public static function activate() {
 		$tableCreate = BGGDb::bggCreateCredTable();
+		$setCred = BGGDb::bggSetCred();
+		
 	}
 
 }
