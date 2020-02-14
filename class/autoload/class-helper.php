@@ -30,13 +30,14 @@ class BGGHelper {
 
 	public static function bggSetAccessToken($token,$refresh_token,$credData){
 		// echo "<pre>";print_r($credData);echo "</pre>";exit();
-		$client_id = $credData->client_id;
-        $client_secret = $credData->client_secret;
+		$client_id		= $credData->client_id;
+        $client_secret 	= $credData->client_secret;
+        $redirect_uri 	= site_url()."/wp-admin/admin.php?page=bbil-gmail-gsuit";
 		
 		$google = new Google_Client();
 		$google->setClientId($client_id);
         $google->setClientSecret($client_secret);
-        $google->setRedirectUri('http://localhost/cee-wp/wp-admin/admin.php?page=bbil-gmail-gsuit');
+        $google->setRedirectUri($redirect_uri);
         $google->setAccessType('offline'); //Added for Refresh Token
         $google->setApprovalPrompt('force'); //Added for Refresh Token
 
