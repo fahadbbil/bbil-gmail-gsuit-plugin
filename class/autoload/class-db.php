@@ -25,13 +25,13 @@ class BGGDb{
 
 	        $sql[] = "CREATE TABLE ". $tokenTable . "   (
 			        id int(11) NOT NULL AUTO_INCREMENT,
-			        access_token varchar(256) NOT NULL,
+			        access_token text NOT NULL,
 			        expires_in varchar(128) NOT NULL,
 			        refresh_token varchar(128) NOT NULL,
 			        scope varchar(128) NOT NULL,
 			        token_type varchar(128) NOT NULL,
 			        updated_at datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-			        created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+			        created_at int(11) NOT NULL,
 			        PRIMARY KEY  (id)
 		        ) ";
 	    }
