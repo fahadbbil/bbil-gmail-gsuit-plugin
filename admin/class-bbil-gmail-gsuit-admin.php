@@ -74,6 +74,7 @@ class Bbil_Gmail_Gsuit_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bbil-gmail-gsuit-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name.'-bootstrap', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css', array(), $this->version, 'all' );
 
 	}
 
