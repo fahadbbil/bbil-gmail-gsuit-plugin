@@ -90,3 +90,10 @@ if ($classes) {
 }
 
 require_once plugin_dir_path( __FILE__ ).'lib/vendor/autoload.php';
+
+/*
+Template Tag to send email
+*/
+function bgg_send_mail(){
+	$bgg_send_mail = BGGHelper::bgg_send_mail();
+}

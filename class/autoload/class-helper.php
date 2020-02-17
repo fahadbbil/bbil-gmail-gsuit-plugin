@@ -57,6 +57,17 @@ class BGGHelper {
             }
         }
         return $google;
+	}
+
+	public static function bgg_send_mail(){
+		$getTokensData = $this->bggGetTokensData();
+		$getTokensData = $getTokensData['0'];
+		$token = $getTokensData->access_token;
+		$refresh_token = $getTokensData->refresh_token;
+
+		$credData = $this->bggGetCredData();
+		$setToken = $this->bggSetAccessToken($token,$refresh_token,$credData);
+		return $setToken;
 	} 
 }
 new BGGHelper();
