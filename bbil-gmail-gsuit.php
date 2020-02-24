@@ -148,7 +148,7 @@ if(!function_exists('wp_mail')){
                 } else {
                         $tempheaders = $headers;
                 }
-                
+
                 $headers = array();
 
                 // If it's actually got contents
@@ -224,7 +224,6 @@ if(!function_exists('wp_mail')){
                 }
             }
 
-
             try{
 				$getTokensData = BGGHelper::bggGetTokensData();
 				$getTokensData = $getTokensData['0'];
@@ -249,6 +248,13 @@ if(!function_exists('wp_mail')){
 		        } else {
 		        	$to_email = $to;
 		        }
+		        if (!empty($reply_to)) {
+			        if (is_array($reply_to)) {
+			        	$reply_to = $reply_to['0'];
+			        } else {
+			        	$reply_to = $reply_to;
+			        }
+		        }
 
 		        $reply_to = $reply_to;
 				$strSesFromEmail = $from_email;
@@ -263,7 +269,9 @@ if(!function_exists('wp_mail')){
 		        if(count($cc)!=0){
 		            $strRawMessage .= "Cc:" .  implode(',',$cc)  . "\r\n";
 		        }
-		        $strRawMessage .= "Reply-To:" .  $reply_to['0']  . "\r\n";
+		        if (!empty($reply_to)) {
+		        	$strRawMessage .= "Reply-To:" .  $reply_to  . "\r\n";
+		    	}
 		        
 		        
 
