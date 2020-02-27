@@ -102,11 +102,16 @@ class Bbil_Gmail_Gsuit_Admin {
 	}
 
 	public function admin_menus_items() {
-		add_menu_page( 'BBIL-Gmail-Gsuit', 'BBIL-Gmail-Gsuit', 'manage_options', 'bbil-gmail-gsuit', function (){$this->admin_main_menu_view();}, '', 11 );
+		add_menu_page('BBIL-Gmail-Gsuit', 'BBIL-Gmail-Gsuit', 'manage_options', 'BBIL-Gmail-Gsuit', function (){ $this->bgg_admin_main_menu_view(); } ,'',10);
+		add_submenu_page('BBIL-Gmail-Gsuit', 'BBIL Gmail Gsuit Settings', 'BBIL Gmail Gsuit Settings', 'manage_options', 'bbil-gmail-gsuit-settings', function (){ $this->bgg_settngs(); } );
 	}
 
-	public function admin_main_menu_view() {
+	public function bgg_admin_main_menu_view() {
 		include plugin_dir_path( dirname( __FILE__ ) ).'admin/partials/bbil-gmail-gsuit-admin-display.php';
+	}
+
+	public function bgg_settngs() {
+		include plugin_dir_path( dirname( __FILE__ ) ).'admin/partials/bbil-gmail-gsuit-settings-display.php';
 	}
 
 }
